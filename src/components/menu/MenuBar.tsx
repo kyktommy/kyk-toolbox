@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import { fileMenu, toolsMenu } from '@/app/constants/menu'
 import {
   Menubar,
   MenubarContent,
@@ -9,6 +8,7 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from '@/components/ui/menubar'
+import { fileMenu, toolsMenu } from '@/constants/menu'
 
 interface IMenuItemXProps {
   title: string
