@@ -9,11 +9,11 @@ curl -fsSL https://bun.sh/install | bash
 bun install
 
 # dev
-bun run dev
+bun run --bun dev
 
 # build nextjs
-bun run build
-bun run start
+bun run --bun build
+bun run --bun start
 
 ```
 

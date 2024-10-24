@@ -38,9 +38,9 @@ const MediumForm = () => {
           name="url"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Medium URL</FormLabel>
+              <FormLabel>Medium article URL</FormLabel>
               <FormControl>
-                <Input placeholder="url" {...field} />
+                <Input placeholder="https://medium.com/..." {...field} />
               </FormControl>
             </FormItem>
           )}

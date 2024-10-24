@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { toolsMenu } from '@/app/constants/menu'
+import { fileMenu, toolsMenu } from '@/app/constants/menu'
 import {
   Menubar,
   MenubarContent,
@@ -10,25 +10,33 @@ import {
   MenubarTrigger,
 } from '@/components/ui/menubar'
 
+interface IMenuItemXProps {
+  title: string
+  items: typeof toolsMenu
+}
+
+const MenuItemX = (props: IMenuItemXProps) => {
+  const { title, items } = props
+  return (
+    <MenubarMenu>
+      <MenubarTrigger>{title}</MenubarTrigger>
+      <MenubarContent>
+        {items.map((item, idx) => (
+          <Link key={item.title} href={item.url}>
+            <MenubarItem>{item.title}</MenubarItem>
+            {idx !== props.items.length - 1 && <MenubarSeparator />}
+          </Link>
+        ))}
+      </MenubarContent>
+    </MenubarMenu>
+  )
+}
+
 const MenuBar = () => {
   return (
     <Menubar>
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href="/">Home</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>Tools</MenubarTrigger>
-        <MenubarContent>
-          {toolsMenu.map((item, idx) => (
-            <Link key={item.title} href={item.url}>
-              <MenubarItem>{item.title}</MenubarItem>
-              {idx !== toolsMenu.length - 1 && <MenubarSeparator />}
-            </Link>
-          ))}
-        </MenubarContent>
-      </MenubarMenu>
+      <MenuItemX title="File" items={fileMenu} />
+      <MenuItemX title="Tools" items={toolsMenu} />
     </Menubar>
   )
 }
