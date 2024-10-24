@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  output: 'export',
+  basePath: '/kyk-toolbox',
+}
 
-export default nextConfig;
+export default nextConfig
